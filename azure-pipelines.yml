@@ -1,0 +1,23 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+
+- task: Checkmarx AST@3
+  displayName: 'Checkmarx SAST Scan'
+  inputs:
+    CheckmarxService: 'Testing connection'
+    projectName: '$(Build.Repository.Name)'
+    branchName: '$(Build.SourceBranchName)'
+    tenantName: 'cx_seg'
+    additionalParams: '--scan-types sast --report-format pdf --report-pdf-email Cx-testing@proton.me'
