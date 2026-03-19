@@ -36,7 +36,7 @@ namespace SQLi_1
             {
                 using (var conn = new SqlConnection("conn..."))
                 {
-                    var sql = "SELECT * FROM Users WHERE username = 123";
+                    var sql = "SELECT * FROM Users WHERE username = '" + username + "' AND pwd = '" + password + "'";
                     using (var cmd = new SqlCommand(sql))
                     {
                         cmd.Connection = conn;
