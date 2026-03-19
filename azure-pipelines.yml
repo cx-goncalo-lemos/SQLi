@@ -1,8 +1,7 @@
 trigger:
 - main
 
-pool:
-  vmImage: cx-gl-pc
+pool: self-hosted
 
 steps:
 - script: echo Hello, world!
