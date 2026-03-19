@@ -2,7 +2,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: cx-gl-pc
 
 steps:
 - script: echo Hello, world!
